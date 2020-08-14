@@ -4,8 +4,8 @@ set -e
 set -o pipefail
 set -v
 
-curl -s -X POST __STACKBIT_WEBHOOK_URL__/pull > /dev/null
-npx @stackbit/stackbit-pull --stackbit-pull-api-url=__STACKBIT_PULL_API_URL__
-curl -s -X POST __STACKBIT_WEBHOOK_URL__/ssgbuild > /dev/null
+curl -s -X POST https://api.stackbit.com/project/5f36d8d5fc6a6c001c0a4674/webhook/build/pull > /dev/null
+npx @stackbit/stackbit-pull --stackbit-pull-api-url=https://api.stackbit.com/pull/5f36d8d5fc6a6c001c0a4674
+curl -s -X POST https://api.stackbit.com/project/5f36d8d5fc6a6c001c0a4674/webhook/build/ssgbuild > /dev/null
 gatsby build
-curl -s -X POST __STACKBIT_WEBHOOK_URL__/publish > /dev/null
+curl -s -X POST https://api.stackbit.com/project/5f36d8d5fc6a6c001c0a4674/webhook/build/publish > /dev/null
